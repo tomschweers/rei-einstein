@@ -19,3 +19,25 @@ export const getSentiment = (query) => {
   })
   .then((res) => res.json())
 }
+
+export const alertMessage = (positive) => {
+  // Result seems to always be positive, so we will create our own metrics
+  if (positive > .9) {
+    alert('You are too kind ;)')
+  }
+  else if (positive > .8) {
+    alert('Your comment is very well appreciated! Come back anytime.')
+  }
+  else if (positive > .7) {
+    alert('Glad to hear that. We are striving to get better everyday.')
+  }
+  else if (positive > .6) {
+    alert('Wow. We will take that into consideration.')
+  }
+  else if (positive > .6) {
+    alert('Wait a minute now, just hold your horses!')
+  }
+  else {
+    alert('Be careful with your words. Einstein has feelings too.')
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Screens
-import HomeScreen from './app/screens/HomeScreen';
+import ImagesScreen from './app/screens/ImagesScreen';
 import CommentScreen from './app/screens/CommentScreen';
 
 // Navigation
@@ -9,7 +9,7 @@ import { createBottomTabNavigator, } from 'react-navigation';
 
 const App = createBottomTabNavigator({
   Home: { 
-    screen: HomeScreen,
+    screen: ImagesScreen,
     navigationOptions: {
       tabBarLabel: 'Images',
     },

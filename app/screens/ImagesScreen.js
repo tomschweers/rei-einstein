@@ -2,16 +2,16 @@ import React, { Component, } from 'react';
 import { Container, Content, } from 'native-base';
 
 import AppHeader from '../components/AppHeader';
-import Home from '../components/Home';
+import Images from '../components/Images';
 
-export default class HomeScreen extends Component {
+export default class ImagesScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return(
       <Container>
         <AppHeader heading={'Images'} />
         <Content>
-          <Home />
+          <Images />
         </Content>
       </Container>
     );

@@ -3,7 +3,7 @@ import { StyleSheet, View, } from 'react-native';
 import { Text, Button, Form, Textarea, H1, } from 'native-base';
 
 // Einstein service
-import { getSentiment, } from '../services/GetSentiment';
+import { getSentiment, alertMessage, } from '../services/GetSentiment';
 
 export default class SubmitComment extends Component {
   constructor(props) {
@@ -32,11 +32,7 @@ export default class SubmitComment extends Component {
             alert('OAuth Token expired. Please create a new one.')
           }
           else {
-            alert(
-              'Positive: ' + JSON.stringify(res.probabilities[0].probability) + ' ' + 
-              'Negative: ' + JSON.stringify(res.probabilities[1].probability) + ' ' + 
-              'Neutral: ' + JSON.stringify(res.probabilities[2].probability)
-            );
+            alertMessage(res.probabilities[0].probability);
           }
         })
         .catch(function(error) {
