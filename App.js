@@ -1,20 +1,20 @@
 import React from 'react';
 
 // Screens
-import ImagesScreen from './app/screens/ImagesScreen';
+import ProductScreen from './app/screens/ProductScreen';
 import CommentScreen from './app/screens/CommentScreen';
 
 // Navigation
 import { createBottomTabNavigator, } from 'react-navigation';
 
 const App = createBottomTabNavigator({
-  Home: { 
-    screen: ImagesScreen,
+  Products: { 
+    screen: ProductScreen,
     navigationOptions: {
-      tabBarLabel: 'Images',
+      tabBarLabel: 'Products',
     },
   },
-  Comment: { 
+  Comments: { 
     screen: CommentScreen,
     navigationOptions: {
       tabBarLabel: 'Comments',

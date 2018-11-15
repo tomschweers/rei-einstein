@@ -1,10 +1,10 @@
-import React, { Component, } from 'react';
-import { Container, Icon, } from 'native-base';
+import React, { Component } from 'react';
+import { Container, Icon } from 'native-base';
 
 import AppHeader from '../components/AppHeader';
 import SubmitComment from '../components/SubmitComment';
 
-export default class UploadScreen extends Component {
+export default class CommentScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return(

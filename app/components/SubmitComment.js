@@ -1,6 +1,6 @@
-import React, { Component, } from 'react';
-import { StyleSheet, View, } from 'react-native';
-import { Text, Button, Form, Textarea, H1, } from 'native-base';
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Text, Button, Form, Textarea, H1 } from 'native-base';
 
 // Einstein service
 import { getSentiment, alertMessage, } from '../services/GetSentiment';
@@ -51,7 +51,7 @@ export default class SubmitComment extends Component {
           <View style={styles.childView}>
               <H1 style={styles.myHeader}>Instructions:</H1>
               <Text style={styles.myText}>
-                Submit a comment about one of the images and REI Einstein will guess which image you are describing.
+                Please provide some feedback about your purchase.
               </Text> 
           </View>
           <View style={styles.childView}>
