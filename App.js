@@ -1,8 +1,8 @@
 import React from 'react';
-import { Icon, } from 'native-base';
 
 // Screens
 import HomeScreen from './app/screens/HomeScreen';
+import CommentScreen from './app/screens/CommentScreen';
 
 // Navigation
 import { createBottomTabNavigator, } from 'react-navigation';
@@ -11,13 +11,13 @@ const App = createBottomTabNavigator({
   Home: { 
     screen: HomeScreen,
     navigationOptions: {
-      tabBarLabel: 'Home',
+      tabBarLabel: 'Images',
     },
   },
-  Upload: { 
-    screen: UploadScreen,
+  Comment: { 
+    screen: CommentScreen,
     navigationOptions: {
-      tabBarLabel: 'Upload',
+      tabBarLabel: 'Comments',
     },
   },
 });

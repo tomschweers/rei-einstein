@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { Container, Icon, } from 'native-base';
+import { Container, Content, } from 'native-base';
 
 import AppHeader from '../components/AppHeader';
 import Home from '../components/Home';
@@ -9,8 +9,10 @@ export default class HomeScreen extends Component {
     const { navigate } = this.props.navigation;
     return(
       <Container>
-        <AppHeader heading={'Home'} />
-        <Home />
+        <AppHeader heading={'Images'} />
+        <Content>
+          <Home />
+        </Content>
       </Container>
     );
   }

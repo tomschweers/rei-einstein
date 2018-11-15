@@ -1,11 +1,11 @@
 import React, { Component, } from 'react';
-import { StyleSheet, View, Image, } from 'react-native';
-import { Text, Button, Content, Form, Textarea, Icon, } from 'native-base';
+import { StyleSheet, View, } from 'react-native';
+import { Text, Button, Form, Textarea, H1, } from 'native-base';
 
 // Einstein service
 import { getSentiment, } from '../services/GetSentiment';
 
-export default class Upload extends Component {
+export default class SubmitComment extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,33 +25,39 @@ export default class Upload extends Component {
   // Send a request to Einstein
   handleSubmit() {
     let query = this.state.inputText;
-    getSentiment(query)
-      .then((res) => {
-        if(res.message === 'Invalid access token') {
-          alert('OAuth Token expired. Please create a new one.')
-        }
-        else {
-          alert(
-            'Positive: ' + JSON.stringify(res.probabilities[0].probability) + ' ' + 
-            'Negative: ' + JSON.stringify(res.probabilities[1].probability) + ' ' + 
-            'Neutral: ' + JSON.stringify(res.probabilities[2].probability)
-          );
-        }
-      })
-      .catch(function(error) {
-        alert('ERROR: ' + error)
-      });
+    if (query !== '') {
+      getSentiment(query)
+        .then((res) => {
+          if(res.message === 'Invalid access token') {
+            alert('OAuth Token expired. Please create a new one.')
+          }
+          else {
+            alert(
+              'Positive: ' + JSON.stringify(res.probabilities[0].probability) + ' ' + 
+              'Negative: ' + JSON.stringify(res.probabilities[1].probability) + ' ' + 
+              'Neutral: ' + JSON.stringify(res.probabilities[2].probability)
+            );
+          }
+        })
+        .catch(function(error) {
+          alert('ERROR: ' + error)
+        });
+    }
+    else {
+      alert('Please enter a comment')
+    }
   }
 
   render() {
     return (
-      <Content>
-        <Image
-          style={styles.myImage}
-          source={require('../images/Camp.jpg')}
-          resizeMode="contain"
-        />
+      <View>
         <View style={styles.myView}>
+          <View style={styles.childView}>
+              <H1 style={styles.myHeader}>Instructions:</H1>
+              <Text style={styles.myText}>
+                Submit a comment about one of the images and REI Einstein will guess which image you are describing.
+              </Text> 
+          </View>
           <View style={styles.childView}>
             <Form>
               <Textarea 
@@ -73,7 +79,7 @@ export default class Upload extends Component {
             </Button>
           </View>
         </View>
-      </Content>
+      </View>
     );
   }
 }
@@ -85,7 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   childView: {
-    height: 150,
+    height: 250,
   },
   myImage: {
     flex:1, 
@@ -95,6 +101,14 @@ const styles = StyleSheet.create({
   },
   myButton: {
     padding: '10%', 
+    alignSelf: 'center',
+  },
+  myHeader: {
+    padding: '10%', 
+    alignSelf: 'center',
+  },
+  myText: {
+    paddingTop: '10%', 
     alignSelf: 'center',
   },
 });
