@@ -34,7 +34,7 @@ export const alertMessage = (positive) => {
   else if (positive > .6) {
     alert('Wow. We will take that into consideration.')
   }
-  else if (positive > .6) {
+  else if (positive > .5) {
     alert('Wait a minute now, just hold your horses!')
   }
   else {
