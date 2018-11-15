@@ -1,4 +1,3 @@
-import { Body } from "native-base";
 import { assets } from './Assets.js';
 
 const TOKEN = assets.token;

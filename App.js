@@ -1,17 +1,25 @@
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Icon, } from 'native-base';
 
-import CampScreen from './app/screens/CampScreen'
-import CycleScreen from './app/screens/CycleScreen'
-import SnowScreen from './app/screens/SnowScreen'
-import TravelScreen from './app/screens/TravelScreen'
+// Screens
+import HomeScreen from './app/screens/HomeScreen';
+
+// Navigation
 import { createBottomTabNavigator, } from 'react-navigation';
 
 const App = createBottomTabNavigator({
-  Camp: { screen: CampScreen },
-  Cycle: { screen: CycleScreen },
-  Snow: { screen: SnowScreen },
-  Travel: { screen: TravelScreen },
+  Home: { 
+    screen: HomeScreen,
+    navigationOptions: {
+      tabBarLabel: 'Home',
+    },
+  },
+  Upload: { 
+    screen: UploadScreen,
+    navigationOptions: {
+      tabBarLabel: 'Upload',
+    },
+  },
 });
 
 export default App;
