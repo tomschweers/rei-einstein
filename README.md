@@ -4,7 +4,6 @@ A mobile app imagining the possibilities with Salesforce's Einstein AI using a p
 
 What is [Einstein AI](https://einstein.ai/)?
 
-
 ## Overview
 
 This is a cross-platform mobile app built with [React Native](https://facebook.github.io/react-native/). I am using [React Navigation](https://reactnavigation.org/) for navigation and [NativeBase](https://nativebase.io/) for UI components.
@@ -39,7 +38,6 @@ react-native run-ios
 react-native run-android
 ```
 
-
 ## Authorization
 
 After you install the app, you will need to generate a new OAuth Token for the Einstein Platform Services API. The token is required and will be the same for all API calls to Einstein, however it is time dependent and will expire after a number of minutes. 
@@ -49,27 +47,19 @@ To generate the private key, sign up [here](https://api.einstein.ai/signup).
 
 Once you have the private key, use it to generate your token [here](https://api.einstein.ai/token).
 
-
 ### Updating your token
 
 The first time (and any time after your token expires) that you want to run this app, you will need to update the OAuth Token. To do so, navigate to 'rei-einstein/app/services/Assets.js' and replace the existing token with the new one. This will update the bearer token for any and all requests to Einstein in the app.
 
+## Using the app
 
-## Making changes
+The app is used to showcase how the Einstein Sentiment API can provide immediate feedback to the user. The first tab is a list of 4 sample products. These are just static entries to paint the picture better. In the future, we could retrieve them from the actual site, save comments and provide a user login. 
 
-Check out the [developer docs](https://metamind.readme.io/) for more on what Einstein can do. This app takes advantage of Einstein Community Sentiment, which already has a data model trained and ready to go. However, you can train your own models and use image/object classifications or language intent type predictions.
-
-Everything that you will need to make changes to this app will can be found in the 'app' folder. Use the 'app/screens' folder for entire pages, then import them into 'App.js' to hook them up to the navigation.
-
-Use the 'app/services' folder for calls to Einstein or a backend system. I unfortunately did not have time to set up a backend system for this project, but I would suggest checking out [Firebase](https://firebase.google.com/) to get up and running quickly. You can also use Firebase pretty easily for user authentication.
-
-The 'app/components' folder holds reusable components that can be used in multiple screens or other components. The key is writing as little code as possible and reusuing the same assets throughout the application, passing in different props as necessary.
-
+The second tab is where you enter a comment about a product. Again, in the future we could link this screen to each of the products on the first tab, passing data between screens. Enter a comment in the text box and click submit. Einstein will analyze your comment and give you a response back depending on your sentiment.
 
 ## Story
 
 So what is this app all about? How can something like this be used in a real life example? Deep learning and AI capabilities are becoming more and more useful in the business world as people begin to uncover new uses for these technologies.
-
 
 ### Identify a problem
 
@@ -77,15 +67,13 @@ We all know the classic 'Reviews' section on any ecommerce website. Think about 
 
 The problem is users have to deliberately choose their star rating, and they only have 5 stars to choose from (maybe 10 if the site allows half stars). This adds a level of bias to a review because in many cases, the user will be forced to round up a star or down a star from where they actually feel.
 
-
 ### Clear solution
 
 Using Einstein Sentiment, we can get rid of the star rating system all together. Users will simply enter a comment and click submit. The API will calculate the level of positive, negative and neutral sentiment that it detects from the review. Using the response from API call we can average it in with the other reviews and create our own, more accurate, display of user satisfaction. 
 
 Taking it a step forward, if we have Salesforce connected to our ecommerce site we can then route the reviews we receive to cases, categorized by the level of sentiment. For positive reviews we will take one action, neutral another and negative a third. Consumers may exhibit unfavorable word-of-mouth communication, if they are dissatisfied with a product. In this case, customers tell twice as many people about bad experiences as good ones and such behavior can severely damage a company's image. 
 
-Addressing [post-purchase dissonance])http://www.zeepedia.com/read.php?post_purchase_dissonance_dissonance_reduction_marketing_implications_consumer_psychology&b=86&c=42) quickly and accurately can change the attitude of the buyer, and they may give the company another chance in the future. The buyer may even spread positive word-of-mouth if the level of recovery exceeds the buyers expectations.
-
+Addressing [post-purchase dissonance](http://www.zeepedia.com/read.php?post_purchase_dissonance_dissonance_reduction_marketing_implications_consumer_psychology&b=86&c=42) quickly and accurately can change the attitude of the buyer, and they may give the company another chance in the future. The buyer may even spread positive word-of-mouth if the level of recovery exceeds the buyers expectations.
 
 ### User narrative
 
@@ -101,10 +89,12 @@ She then goes back on the REI site and posts a negative review. Einstein then ta
 
 Our buyer is now more likely to keep purchasing from REI even though she experienced post-purchase dissonance because the conflict was resolved quickly, efficiently and exceeded her expectations.
 
+## Making changes
 
-## Using the app
+Check out the [developer docs](https://metamind.readme.io/) for more on what Einstein can do. This app takes advantage of Einstein Community Sentiment, which already has a data model trained and ready to go. However, you can train your own models and use image/object classifications or language intent type predictions.
 
-The app is used to showcase how the Einstein Sentiment API can provide immediate feedback to the user. The first tab is a list of 4 sample products. These are just static entries to paint the picture better. With more time we could retrieve them from the actual site, save comments in a backend and provide a user login. 
+Everything that you will need to make changes to this app will can be found in the 'app' folder. Use the 'app/screens' folder for entire pages, then import them into 'App.js' to hook them up to the navigation.
 
-The second tab is where you enter a comment about a product. Again, in the future we could link this screen to each of the products on the first tab, passing data between screens. Enter a comment in the text box and click submit. Einstein will analyze your comment and give you a response back depending on your sentiment.
+Use the 'app/services' folder for calls to Einstein or a back-end system. I unfortunately did not have time to set up a backend system for this project, but I would suggest checking out [Firebase](https://firebase.google.com/) to get up and running quickly. You can also use Firebase pretty easily for user authentication.
 
+The 'app/components' folder holds reusable components that can be used in multiple screens or other components. The key is writing as little code as possible and reusuing the same assets throughout the application, passing in different props as necessary.
