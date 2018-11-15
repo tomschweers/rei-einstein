@@ -95,6 +95,6 @@ Check out the [developer docs](https://metamind.readme.io/) for more on what Ein
 
 Everything that you will need to make changes to this app will can be found in the 'app' folder. Use the 'app/screens' folder for entire pages, then import them into 'App.js' to hook them up to the navigation.
 
-Use the 'app/services' folder for calls to Einstein or a back-end system. I unfortunately did not have time to set up a backend system for this project, but I would suggest checking out [Firebase](https://firebase.google.com/) to get up and running quickly. You can also use Firebase pretty easily for user authentication.
+Use the 'app/services' folder for calls to Einstein or a back-end system. I would suggest checking out [Firebase](https://firebase.google.com/) to get up and running quickly. You can also use Firebase pretty easily for user authentication.
 
 The 'app/components' folder holds reusable components that can be used in multiple screens or other components. The key is writing as little code as possible and reusuing the same assets throughout the application, passing in different props as necessary.
